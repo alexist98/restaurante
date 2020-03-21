@@ -44,25 +44,30 @@ class CategoryScreen extends StatelessWidget {
                       physics: NeverScrollableScrollPhysics(),
                       children: [
                         GridView.builder(
-                          padding: EdgeInsets.all(4.0),
-                          gridDelegate:
-                          SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            mainAxisSpacing: 4.0,
-                            crossAxisSpacing: 4.0,
-                            childAspectRatio: 0.65,
-                          ),
-                          itemCount: snapshot.data.documents.length,
-                          itemBuilder: (context, index) {
-                            return ProductTile(
-                                "grid",
-                                ProductData.fromDocument(
-                                    snapshot.data.documents[index]));
-                          },
-                        ),
-                        Container(
-                          color: Colors.green,
-                        )
+                            padding: EdgeInsets.all(4.0),
+                            gridDelegate:
+                            SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              mainAxisSpacing: 4.0,
+                              crossAxisSpacing: 4.0,
+                              childAspectRatio: 0.65,
+                            ),
+                            itemCount: snapshot.data.documents.length,
+                            itemBuilder: (context, index) {
+                              return ProductTile(
+                                  "grid",
+                                  ProductData.fromDocument(
+                                      snapshot.data.documents[index]));
+                            }),
+                        ListView.builder(
+                            padding: EdgeInsets.all(4.0),
+                            itemCount: snapshot.data.documents.length,
+                            itemBuilder: (context, index) {
+                              return ProductTile(
+                                  "list",
+                                  ProductData.fromDocument(
+                                      snapshot.data.documents[index]));
+                            })
                       ]);
               })),
     );
