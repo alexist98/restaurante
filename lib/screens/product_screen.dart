@@ -49,10 +49,7 @@ class _ProductScreenState extends State<ProductScreen> {
               children: <Widget>[
                 Text(
                   product.title,
-                  style: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.w500
-                  ),
+                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w500),
                   maxLines: 3,
                 ),
                 Text(
@@ -60,7 +57,46 @@ class _ProductScreenState extends State<ProductScreen> {
                   style: TextStyle(
                       fontSize: 22.0,
                       fontWeight: FontWeight.bold,
-                      color: primaryColor
+                      color: primaryColor),
+                ),
+                SizedBox(
+                  height: 16.0,
+                ),
+                Text(
+                  "Retirar algum ingrediente",
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                SizedBox(
+                  height: 40.0,
+                  child: GridView(
+                    padding: EdgeInsets.symmetric(vertical: 4.0),
+                    scrollDirection: Axis.horizontal,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 1,
+                      mainAxisSpacing: 8.0,
+                      childAspectRatio: 0.5,
+                    ),
+                    children: product.noitem.map(
+                            (s) {
+                          return GestureDetector(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                    Radius.circular(4.0)),
+                                border: Border.all(
+                                  color: Colors.grey[500],
+                                ),
+                              ),
+                              width: 50.0,
+                              alignment: Alignment.center,
+                              child: Text(s),
+                            ),
+                          );
+                        }
+                    ).toList(),
                   ),
                 ),
               ],
