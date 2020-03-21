@@ -14,6 +14,8 @@ class ProductScreen extends StatefulWidget {
 class _ProductScreenState extends State<ProductScreen> {
   final ProductData product;
 
+  String size;
+
   _ProductScreenState(this.product);
 
   @override
@@ -63,7 +65,7 @@ class _ProductScreenState extends State<ProductScreen> {
                   height: 16.0,
                 ),
                 Text(
-                  "Retirar algum ingrediente",
+                  "Tamanho",
                   style: TextStyle(
                     fontSize: 16.0,
                     fontWeight: FontWeight.w500,
@@ -79,24 +81,29 @@ class _ProductScreenState extends State<ProductScreen> {
                       mainAxisSpacing: 8.0,
                       childAspectRatio: 0.5,
                     ),
-                    children: product.noitem.map(
-                            (s) {
-                          return GestureDetector(
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.all(
-                                    Radius.circular(4.0)),
-                                border: Border.all(
-                                  color: Colors.grey[500],
-                                ),
-                              ),
-                              width: 50.0,
-                              alignment: Alignment.center,
-                              child: Text(s),
+                    children: product.noitem.map((s) {
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            size = s;
+                          });
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius:
+                            BorderRadius.all(Radius.circular(4.0)),
+                            border: Border.all(
+                              width: 3.0,
+                              color:
+                              s == size ? primaryColor : Colors.grey[500],
                             ),
-                          );
-                        }
-                    ).toList(),
+                          ),
+                          width: 60.0,
+                          alignment: Alignment.center,
+                          child: Text(s),
+                        ),
+                      );
+                    }).toList(),
                   ),
                 ),
               ],
