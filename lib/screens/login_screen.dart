@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restaurante/screens/signup_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -18,7 +19,11 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             textColor: Colors.white,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => SignUpScreen())
+              );
+            },
           ),
         ],
       ),

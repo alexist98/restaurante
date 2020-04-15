@@ -54,6 +54,18 @@ class SignUpScreen extends StatelessWidget {
             SizedBox(
               height: 16.0,
             ),
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: "Endereço",
+              ),
+              // ignore: missing_return
+              validator: (text) {
+                if (text.isEmpty) return "Endereço Invalida";
+              },
+            ),
+            SizedBox(
+              height: 16.0,
+            ),
             SizedBox(
               height: 44.0,
               child: RaisedButton(
