@@ -30,6 +30,12 @@ class LoginScreen extends StatelessWidget {
         ),
         body: ScopedModelDescendant<UserModel>(
           builder: (context, child, model) {
+            if (model.isLoading) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+
             return Form(
               key: _formKey,
               child: ListView(
@@ -88,7 +94,10 @@ class LoginScreen extends StatelessWidget {
                           .of(context)
                           .primaryColor,
                       onPressed: () {
-                        if (_formKey.currentState.validate()) {}
+                        if (_formKey.currentState.validate()) {
+
+                        }
+                        model.signIn();
                       },
                     ),
                   ),

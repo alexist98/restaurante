@@ -32,7 +32,7 @@ dependencies:
   transparent_image: 0.1.0
   scoped_model: ^0.3.0
   path_provider: ^0.4.1
-  #firebase_auth: 0.5.18
+  firebase_auth: 0.5.18
   url_launcher: ^3.0.3
 
 dev_dependencies:
