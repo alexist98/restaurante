@@ -70,7 +70,7 @@ class SignUpScreen extends StatelessWidget {
               height: 44.0,
               child: RaisedButton(
                 child: Text(
-                  "Entrar",
+                  "Criar Conta",
                   style: TextStyle(
                     fontSize: 18.0,
                   ),

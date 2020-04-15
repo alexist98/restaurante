@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:restaurante/screens/login_screen.dart';
 import 'package:restaurante/tiles/drawer_tile.dart';
 
 class CustomDrawer extends StatelessWidget {
-
   final PageController pageController;
 
   CustomDrawer(this.pageController);
@@ -63,7 +63,8 @@ class CustomDrawer extends StatelessWidget {
                                   fontWeight: FontWeight.bold),
                             ),
                             onTap: () {
-
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => LoginScreen()));
                             },
                           )
                         ],
